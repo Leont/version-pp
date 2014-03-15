@@ -161,7 +161,7 @@ sub new {
 #	}
 	elsif ($original =~ / \A $LAX_DOTTED_DECIMAL_VERSION \z /x) {
 		(my $argument = $original) =~ s/^v//;
-		my ($head, @tail) = split /[._]/, $argument;
+		my ($head, @tail) = map { tr/_//d ; $_ } split /[.]/, $argument;
 		my $numified = "$head." . join '', map { sprintf "%03d", $_ } @tail;
 		return bless {
 			alpha => $argument =~ tr/_//,

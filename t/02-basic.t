@@ -113,7 +113,7 @@ ok ( $version < $new_version, '$version < $new_version' );
 ok ( $new_version > $version, '$new_version > $version' );
 ok ( $version != $new_version, '$version != $new_version' );
 
-$version = version::pp->new("1.2.4");
+$version = version::pp->new("1.2.40");
 ok ( $version > $new_version, '$version > $new_version' );
 ok ( $new_version < $version, '$new_version < $version' );
 ok ( $version != $new_version, '$version != $new_version' );
@@ -127,19 +127,17 @@ ok ( $version != $new_version, '$version != $new_version' );
 ok ( !$version->is_alpha, '!$version->is_alpha');
 ok ( $new_version->is_alpha, '$new_version->is_alpha');
 
-$version = version::pp->new("1.2.4");
+$version = version::pp->new("1.2.40");
 ok ( $version > $new_version, '$version > $new_version' );
 ok ( $new_version < $version, '$new_version < $version' );
 ok ( $version != $new_version, '$version != $new_version' );
 
-$version = version::pp->new("1.2.3.4");
+$version = version::pp->new("1.2.34");
 $new_version = version::pp->new("1.2.3_4");
 ok ( $version == $new_version, '$version > $new_version' );
 
 $version = version::pp->new("v1.2.3");
 $new_version = version::pp->new("1.2.3.0");
-ok ( $version == $new_version, '$version == $new_version' );
-$new_version = version::pp->new("1.2.3_0");
 ok ( $version == $new_version, '$version == $new_version' );
 $new_version = version::pp->new("1.2.3.1");
 ok ( $version < $new_version, '$version < $new_version' );
